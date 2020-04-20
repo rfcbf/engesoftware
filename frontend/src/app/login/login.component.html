@@ -1,0 +1,60 @@
+<div class="container-fluid" style="height: 50px; background-color: #eb7f35">
+  <div style="height: 15%"></div>
+  <div class="text-white text-xl-left text-uppercase">
+    <h1>EFETUAR LOGIN</h1>
+  </div>
+</div>
+
+
+<div *ngIf="alerta" class="alert alert-danger" role="alert" (close)="removeAlert()">
+  <strong>Atenção!</strong> Email ou Senha inválidos.
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close" (click)="removeAlert()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
+
+<form class="form-signin" [formGroup]="formulario">
+
+  <div class="espaco"></div>
+
+  <div class="form-group" [ngClass]="aplicaCssError('email')">
+
+    <div class="col-sm-12">
+      <label for="inputEmail" class="sr-only text-left">Email address</label>
+    </div>
+    <div class="col-sm-12">
+      <input formControlName="email" type="email" name="inputEmail" id="inputEmail" class="form-control mb-3"
+             [ngClass]="aplicaCssError('email')" placeholder="Email">
+      <app-campo-control-erro
+        [mostrarErro]="verificaValidTouch('email')"
+        msgErro="Email é obrigatório.">
+      </app-campo-control-erro>
+      <app-campo-control-erro
+        [mostrarErro]="verificaEmailValido()"
+        msgErro="Email invalido.">
+      </app-campo-control-erro>
+    </div>
+
+  </div>
+
+  <div class="form-group" [ngClass]="aplicaCssError('senha')">
+    <div class="col-sm-12">
+      <label for="inputPassword" class="sr-only text-left">Password</label>
+    </div>
+    <div class="col-sm-12">
+      <input formControlName="senha" type="password" id="inputPassword" name="inputPassword" class="form-control mb-3"
+             [ngClass]="aplicaCssError('senha')" placeholder="Senha">
+      <app-campo-control-erro
+        [mostrarErro]="verificaValidTouch('senha')"
+        msgErro="Senha é obrigatório.">
+      </app-campo-control-erro>
+    </div>
+  </div>
+
+  <div class="espaco"></div>
+  <div class="text-center">
+    <button class="btn btn-enge" type="button" (click)="autenticar()">ENTRAR</button>
+  </div>
+
+</form>

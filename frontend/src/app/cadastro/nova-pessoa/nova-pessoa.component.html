@@ -1,0 +1,71 @@
+<div class="container-fluid" style="height: 50px; background-color: #eb7f35">
+  <div style="height: 15%"></div>
+  <div class="text-white text-xl-left text-uppercase">
+    <h1>{{titulo}}</h1>
+  </div>
+</div>
+
+<form class="form-signin" [formGroup]="formulario">
+
+  <div class="espaco"></div>
+
+  <div class="form-group" [ngClass]="aplicaCssError('nome')">
+    <div class="col-sm-12">
+      <label for="inputNome" class="text-left">Nome Completo</label>
+    </div>
+    <div class="col-sm-12">
+      <input type="text" formControlName="nome" id="inputNome" class="form-control mb-3"
+             [ngClass]="aplicaCssError('nome')" placeholder="Digite seu nome completo">
+      <app-campo-control-erro
+        [mostrarErro]="verificaValidTouch('nome')"
+        msgErro="Nome é obrigatório.">
+      </app-campo-control-erro>
+
+    </div>
+  </div>
+
+  <div class="form-group" [ngClass]="aplicaCssError('email')">
+    <div class="col-sm-12">
+      <label for="inputEmail" class="text-left">Email</label>
+    </div>
+    <div class="col-sm-12">
+      <input type="email" formControlName="email" id="inputEmail" class="form-control mb-3"
+             [ngClass]="aplicaCssError('email')" placeholder="Digite seu email">
+      <app-campo-control-erro
+        [mostrarErro]="verificaValidTouch('email')"
+        msgErro="Email é obrigatório.">
+      </app-campo-control-erro>
+      <app-campo-control-erro
+        [mostrarErro]="verificaEmailValido()"
+        msgErro="Email invalido.">
+      </app-campo-control-erro>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-sm-12">
+      <label for="inputTelefone" class="text-left">Telefone</label>
+    </div>
+    <div class="col-sm-12">
+      <input type="text" id="inputTelefone" formControlName="telefone" class="form-control mb-3" mask="(00) 00000-0000"
+             placeholder="(xx) xxxxx-xxxx">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-sm-12">
+      <label for="inputEmpresa" class="text-left">Empresa</label>
+    </div>
+    <div class="col-sm-12">
+      <input type="text" id="inputEmpresa" formControlName="empresa" class="form-control mb-3"
+             placeholder="Digite o nome da empresa">
+    </div>
+  </div>
+
+  <div class="espaco"></div>
+
+  <div class="text-center">
+    <button class="btn btn-enge btn-block" type="button" (click)="criarPessoa()">SALVAR</button>
+    <button class="btn btn-light btn-block" type="button" (click)="cancelar()">CANCELAR</button>
+  </div>
+</form>

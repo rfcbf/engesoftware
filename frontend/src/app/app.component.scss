@@ -1,0 +1,49 @@
+.btn-enge{
+  background-color: #eb7f35;
+  border-color: #eb7f35;
+  color: white;
+}
+
+::ng-deep .nav-fill .nav-link.active {
+  margin-top: -1px;
+  border-top: 2px solid #20a8d8;
+  color: yellow;
+}
+
+::ng-deep a {
+  color: #eb7f35;
+}
+
+::ng-deep a:hover {
+  color: #eb7f35;
+}
+
+::ng-deep .nav-pills a.nav-link.active,
+::ng-deep .nav-pills .show > a.nav-link {
+  color: #fff;
+  background-color: #eb7f35;
+}
+
+::ng-deep .nav-pills a.nav-link,
+::ng-deep .nav-pills .show > a.nav-link {
+  color: #eb7f35;
+  background-color: transparent;
+}
+
+.texto-enge{
+  color: #eb7f35;
+}
+
+.texto-nome{
+  padding-left: 5px;
+  padding-right: 15px;
+  padding-bottom: 15px;
+  margin-top: 15px;
+}
+
+.btn-desconectar{
+  color: #fff;
+  background-color: #eb7f35;
+  width: 55px;
+  height: 50px;
+}

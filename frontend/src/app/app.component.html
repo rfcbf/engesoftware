@@ -1,0 +1,39 @@
+<nav class="navbar navbar-light bg-light justify-content-between">
+
+  <img src="/assets/logoenge.png" alt="" width="200px" height="100px">
+
+  <div *ngIf="mostrarMenu">
+    <ul class="nav">
+      <li class="nav-item">
+        <div class="row text-right">
+          <span class="texto-nome"><strong class="texto-enge">Usuario Logado: </strong>{{usuarioLogado.nome}}</span>
+          <button class="btn btn-desconectar" style="display: table-row" (click)="desconectar()"><i class="fa fa-sign-out fa-2x"></i></button>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+
+  <div *ngIf="!mostrarMenu">
+    <ul class="nav nav-pills">
+      <li class="nav-item">
+        <a class="nav-link btn-enge {{botaoAtivado === 'Login' ? 'active' : ''}}" routerLink="/login"
+           (click)="mudaFocusLogin()">Login</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link {{botaoAtivado === 'CriarUsuario' ? 'active' : ''}}" routerLink="/criarusuario"
+           (click)="mudaFocusCriarUsuario()">Criar Usuário</a>
+      </li>
+    </ul>
+  </div>
+
+</nav>
+
+<router-outlet></router-outlet>
+
+<footer class="page-footer font-small">
+  <div class="footer-copyright text-center py-3">© 2020 Copyright:
+    <span class="texto-enge"> <a
+      href="mailto:renato.ferraz@me.com?Subject=Engesoftware">Desenvolvido por Renato Ferraz</a></span>
+  </div>
+</footer>
